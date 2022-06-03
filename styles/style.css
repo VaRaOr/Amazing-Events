@@ -1,0 +1,135 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Roboto Flex', sans-serif;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+}
+
+
+.xd {
+    width: 100%;
+    height: 12rem;
+    border: 5px solid white;
+    object-fit: cover;
+}
+/* @media screen and (max-width:575px) {
+    .xd{
+        object-fit: cover;
+    }
+} */
+
+.imgf {
+    height: 2rem;
+    border-radius: 50%;
+    background-color: rgb(220, 191, 207);
+}
+
+h5 {
+    color: rgb(143, 28, 92);
+}
+
+h6 {
+    color: rgb(143, 28, 92);
+}
+
+.navbar {
+    background-color: rgb(245, 245, 245);
+}
+
+.dark {
+    background-color: rgb(143, 28, 92);
+}
+
+/* .dark{
+    background-color: rgb(92, 45, 65);
+} */
+.category-color{
+    color: rgb(245, 245, 245);
+}
+
+.rgbcarrou {
+    background-color: rgb(217, 3, 104);
+}
+
+footer {
+    background-color: rgb(220, 191, 207);
+    color: rgb(217, 3, 104);
+}
+
+.card {
+    background-color: rgb(245, 245, 245);
+}
+
+.card-footer {
+    background-color: rgb(233, 218, 226);
+}
+
+.boton-rosita {
+    background-color: rgb(247, 37, 133);
+    color: rgb(245, 245, 245);
+    
+}
+
+.nav-link {
+    border: none;
+    background-color: rgb(245, 245, 245);
+}
+
+.carou {
+    background-color: rgb(217, 3, 104);
+    border: none;
+}
+
+.nav-link {
+    color: rgb(217, 3, 104);
+}
+
+h2 {
+    color: rgb(245, 245, 245);
+}
+
+.form {
+    padding: 2rem 0rem;
+    width: 30%;
+    color: rgb(245, 245, 245);
+}
+
+.bgtable {
+    background-color: rgb(217, 3, 104);
+    /* border-top: 2px solid black; */
+}
+
+table {
+    border: none !important;
+    
+    /* border: 2px solid black; */
+}
+
+a{
+    text-decoration: none;
+}
+th{
+    font-size: large;
+}
+td{
+    width: 30%;
+}
+li{
+    list-style: none;
+}
+.btn-primary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(217, 3, 104)!important ;
+}
+.btn-primary a{
+    font-size: 3rem;
+    color: rgb(245, 245, 245);
+}
+/* rgb(233, 218, 226) */
+/* letras nav en color del main 
+el boton search el hover seria rgb(233, 218, 226) y el color de la tipografia del del hover active seria el del main
+rgb(245, 245, 245)
+el el hover del search seria mi blanco */
