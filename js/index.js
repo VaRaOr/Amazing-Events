@@ -1,28 +1,31 @@
 var checkboxSelected = [];
 var textSearch = "";
 
+// let api = "https://mindhub-xj03.onrender.com/api/amazing"
+
 let data = []
-async function getData(){
-    await fetch("https://mindhub-xj03.onrender.com/api/amazing")
+async function getData() {
+    await fetch('/js/amazingEvents.json')
         .then(Response => Response.json())
-        .then(json=> data = json)
-let eventos = data
-return eventos
+        .then(json => data = json)
+    let eventos = data
+    return eventos
 }
-data =  await getData()
-console.log(data)
+
+data = await getData()
+console.log("getData", data)
 
 function categoriasXD() {
     //ANCHOR CREO LOS CHECKBOX DINAMICOS Y TRABAJO CON ELLOS DESDE EL INICIO DE LA CARGA DEL DOCUMENTO
     var checkboxes = document.getElementById("categorias")
 
     var todasLasCategorias = data.events.map(eventos => eventos.category) //Recorro el array de eventos y separo de este la propiedad categorias
-    
+
     const datosArray = new Set(todasLasCategorias) //Dado al recorrer el array anterios me va a dar todas las propiedades, con el metodo set elimino las repetidas y dejo solo el primer elemento encontrado, el resto lo descarta
-    
+
     var categorias = [...datosArray] //guardo el dato obtenido con el metodo anterior en la variable categorias
-    
-    var imputCheckbox= ""
+
+    var imputCheckbox = ""
     categorias.forEach(categorias => {
         imputCheckbox += `
         <div class="form-check form-check-inline">
@@ -43,43 +46,43 @@ categoriasXD()
 var checkBox = document.querySelectorAll("input[type=checkbox]");
 console.log(checkBox)
 
-checkBox.forEach(check=> check.addEventListener("click" , (event)=>{
+checkBox.forEach(check => check.addEventListener("click", (event) => {
     var checked = event.target.checked
-    if(checked){
+    if (checked) {
         checkboxSelected.push(event.target.value)
         arrayFiltrado() //aca va una fn que filtra las posibilidades de busqueda
-console.log(checkboxSelected);
+        console.log(checkboxSelected);
     } else {
         checkboxSelected = checkboxSelected.filter(cadaCheck => cadaCheck !== event.target.value)
         arrayFiltrado() //aca va una fn que filtra las uncheck
-console.log(checkboxSelected);
+        console.log(checkboxSelected);
     }
 }))
 
 var searchinput = document.querySelector("#search")
-searchinput.addEventListener("keyup",(event) => {
+searchinput.addEventListener("keyup", (event) => {
     textSearch = event.target.value
     arrayFiltrado() //fn xd
 })
 
 //Comparar las entradas de busqueda con los datos
-function arrayFiltrado(){
+function arrayFiltrado() {
     let datos = [];
     if (checkboxSelected.length > 0 && textSearch !== "") {
         checkboxSelected.map(selected => {
             datos.push(...data.events.filter(evento => evento.name.toLowerCase().includes(textSearch.trim().toLowerCase()) && evento.category == selected))
-            
+
         })
     }
-    else if (checkboxSelected.length > 0 && textSearch === ""){
+    else if (checkboxSelected.length > 0 && textSearch === "") {
         checkboxSelected.map(selected => {
-            datos.push(...data.events.filter(evento => evento.category==selected))
+            datos.push(...data.events.filter(evento => evento.category == selected))
         })
     }
     else if (checkboxSelected.length == 0 && textSearch !== "") {
         datos.push(...data.events.filter(evento => evento.name.toLowerCase().includes(textSearch.trim().toLowerCase())))
     }
-    else {datos.push(...data.events) }
+    else { datos.push(...data.events) }
 
     cartitasxd(datos)
 }
@@ -87,8 +90,8 @@ arrayFiltrado()
 
 function cartitasxd(eventito) {
     var templateHtml = ""
-    if(eventito.length !== 0){
-        for(let i = 0; i < eventito.length; i++){
+    if (eventito.length !== 0) {
+        for (let i = 0; i < eventito.length; i++) {
             templateHtml += `
             <div class="col pb-3">
             <div class="card h-100">
@@ -107,7 +110,7 @@ function cartitasxd(eventito) {
         }
         document.querySelector("#cartinias").innerHTML = templateHtml
     }
-    else{
+    else {
         document.querySelector("#cartinias").innerHTML = `
         <div class="d-flex flex-column pt-2 justify-content-center align-items-center">
             <h2> Event not found😎</h2>

@@ -1,6 +1,6 @@
 let data = []
 async function getData(){
-    await fetch("https://amazing-events.herokuapp.com/api/events")
+    await fetch('/js/amazingEvents.json')
         .then(Response => Response.json())
         .then(json=> data = json)
 let eventos = data.events

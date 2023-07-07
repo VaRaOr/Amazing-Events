@@ -1,5 +1,5 @@
 
-let urlApi = "https://amazing-events.herokuapp.com/api/events"
+let urlApi = '/js/amazingEvents.json'
 let dataArray;
 async function getData() {
     await fetch(urlApi)
