@@ -3,7 +3,7 @@ var textSearch = "";
 
 let data = []
 async function getData(){
-    await fetch("https://amazing-events.herokuapp.com/api/events")
+    await fetch("https://mindhub-xj03.onrender.com/api/amazing")
         .then(Response => Response.json())
         .then(json=> data = json)
 let eventos = data
