@@ -5,7 +5,7 @@ var textSearch = "";
 
 let data = []
 async function getData() {
-    await fetch('/js/amazingEvents.json')
+    await fetch('../js/amazingEvents.json')
         .then(Response => Response.json())
         .then(json => data = json)
     let eventos = data
