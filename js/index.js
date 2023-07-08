@@ -1,18 +1,32 @@
 var checkboxSelected = [];
 var textSearch = "";
 
-// let api = "https://mindhub-xj03.onrender.com/api/amazing"
-
 let data = []
-async function getData() {
-    await fetch('../js/amazingEvents.json')
-        .then(Response => Response.json())
-        .then(json => data = json)
-    let eventos = data
-    return eventos
+
+async function getDataFromAPI() {
+    const url = "https://mindhub-xj03.onrender.com/api/amazing";
+    const headers = new Headers();
+    headers.append("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
+
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: headers,
+            mode: "cors"
+        });
+
+        if (!response.ok) {
+            throw new Error("Error en la solicitud: " + response.status);
+        }
+
+        const data = await response.json();
+        return data
+    } catch (error) {
+        console.log("Error al realizar la petición:", error.message);
+    }
 }
 
-data = await getData()
+data = await getDataFromAPI()
 console.log("getData", data)
 
 function categoriasXD() {
